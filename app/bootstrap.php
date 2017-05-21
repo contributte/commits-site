@@ -4,10 +4,10 @@ require __DIR__ . '/../vendor/autoload.php';
 
 $configurator = new Nette\Configurator;
 $configurator->setDebugMode(PHP_SAPI === 'cli' ? true : []);
-$configurator->enableTracy(__DIR__ . '/../log');
+$configurator->enableTracy(__DIR__ . '/../var/log');
 
 $configurator->setTimeZone('Europe/Prague');
-$configurator->setTempDirectory(__DIR__ . '/../temp');
+$configurator->setTempDirectory(__DIR__ . '/../var');
 
 $configurator->createRobotLoader()
 	->addDirectory(__DIR__)
