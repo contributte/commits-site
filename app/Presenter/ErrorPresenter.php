@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Presenters;
+namespace App\Presenter;
 
 use Nette;
 use Tracy\ILogger;
