@@ -14,6 +14,7 @@ application:
 
 session:
 	expiration: 14 days
+	save_path: %tempDir%/../sessions
 
 
 services:
