@@ -3,13 +3,13 @@ search:
 	exclude:
 		classes:
 			- App\Bootstrap
-			- App\RouterFactory
+			- App\Router\RouterFactory
 
 
 application:
 	errorPresenter: Error
 	mapping:
-		*: App\*Module\Presenters\*Presenter
+		*: App\*Module\Presenter\*Presenter
 
 
 session:
@@ -18,4 +18,4 @@ session:
 
 
 services:
-	router: App\RouterFactory::createRouter
+	router: App\Router\RouterFactory::createRouter
