@@ -5,3 +5,6 @@ parameters:
 		- www/
 		- tests/
 	tmpDir: var/temp
+	ignoreErrors:
+		- '#^Constant \S+ is unused\.$#D'
+		- '#^Property \S+ is never read, only written\.$#D'
