@@ -6,3 +6,7 @@ parameters:
 		user: root
 		password:
 		dbname: test
+
+	githubAPI:
+		clientID:
+		clientSecret:
