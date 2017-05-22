@@ -131,7 +131,8 @@ class Commit
 		string $message,
 		int $additions,
 		int $deletions,
-		int $total
+		int $total,
+		int $sort = 0
 
 	) {
 		$this->sha = $sha;
@@ -155,6 +156,8 @@ class Commit
 		$this->additions = $additions;
 		$this->committer = $committer;
 		$this->deletions = $deletions;
+
+		$this->sort = $sort;
 
 		$this->files = new ArrayCollection;
 	}
