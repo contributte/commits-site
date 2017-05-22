@@ -56,3 +56,8 @@ services:
 
 	doctrine.dbal.resultCache:
 		factory: Doctrine\Common\Cache\FilesystemCache( %tempDir%/cache/doctrine )
+
+	-
+		factory: Milo\Github\Api
+		setup:
+			- setDefaultParameters({ client_id: %githubAPI.clientID%, client_secret: %githubAPI.clientSecret% })
