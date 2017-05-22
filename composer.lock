@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "17a7d14dfaa85cd18362eefebe834413",
+    "content-hash": "971abcef4ffa97ddbb1a1b7da0493783",
     "packages": [
         {
             "name": "contributte/console",
@@ -1155,6 +1155,49 @@
                 "twig"
             ],
             "time": "2020-04-20T21:18:50+00:00"
+        },
+        {
+            "name": "milo/github-api",
+            "version": "v1.4.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/milo/github-api.git",
+                "reference": "f72f6a1699f9a648dafdb278cbf9a6dc258b4e1f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/milo/github-api/zipball/f72f6a1699f9a648dafdb278cbf9a6dc258b4e1f",
+                "reference": "f72f6a1699f9a648dafdb278cbf9a6dc258b4e1f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "nette/tester": "~1.7.0"
+            },
+            "suggest": {
+                "ext-curl": "Allows you to use Http\\CurlClient"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/Github/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Miloslav Hůla",
+                    "email": "miloslav.hula@gmail.com",
+                    "homepage": "https://github.com/milo"
+                }
+            ],
+            "description": "Github API easy access",
+            "time": "2020-01-03T17:19:16+00:00"
         },
         {
             "name": "nette/application",
