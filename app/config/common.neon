@@ -50,3 +50,15 @@ services:
 		factory: Milo\Github\Api
 		setup:
 			- setDefaultParameters({ client_id: %githubAPI.clientID%, client_secret: %githubAPI.clientSecret% })
+
+	- App\Facade\User\UserPersister
+	- App\Facade\Commit\CommitPersister
+	- App\Facade\Commit\CommitsOrderUpdater
+	- App\Facade\Commit\UnreachableCommitsDeleter
+
+	- App\Service\Synchronizer\UserSynchronizer
+	- App\Service\Synchronizer\CommitSynchronizer
+
+	- App\QueryFunction\User\UsersIndexedByGithubIdQuery
+	- App\QueryFunction\Commit\CommitsRepositoryShaMapQuery
+	- App\QueryFunction\Repository\RepositoriesSortedByProjectAndNameQuery
