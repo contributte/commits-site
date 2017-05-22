@@ -8,7 +8,7 @@ use Ramsey\Uuid\Uuid;
 use Doctrine\ORM\Mapping as ORM;
 
 
-/** @ORM\Entity */
+/** @ORM\Entity(repositoryClass = "App\Repository\UserRepository") */
 class User
 {
 
@@ -42,6 +42,13 @@ class User
 	{
 		$this->id = Uuid::uuid4()->toString();
 		$this->githubID = $githubID;
+		$this->login = $login;
+		$this->avatarURL = $avatarURL;
+	}
+
+
+	public function merge(string $login, ?string $avatarURL): void
+	{
 		$this->login = $login;
 		$this->avatarURL = $avatarURL;
 	}
