@@ -45,3 +45,8 @@ orm.annotations:
 
 services:
 	router: App\Router\RouterFactory::createRouter
+
+	-
+		factory: Milo\Github\Api
+		setup:
+			- setDefaultParameters({ client_id: %githubAPI.clientID%, client_secret: %githubAPI.clientSecret% })
