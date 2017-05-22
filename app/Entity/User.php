@@ -4,20 +4,36 @@ declare(strict_types = 1);
 
 namespace App\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
 
+
+/** @ORM\Entity */
 class User
 {
 
-	/** @var string */
+	/**
+	 * @ORM\Id
+	 * @ORM\Column(type = "string")
+	 * @var string
+	 */
 	private $id;
 
-	/** @var int */
+	/**
+	 * @ORM\Column(type = "integer", unique = true)
+	 * @var int
+	 */
 	private $githubID;
 
-	/** @var string */
+	/**
+	 * @ORM\Column(type = "string")
+	 * @var string
+	 */
 	private $login;
 
-	/** @var string|null */
+	/**
+	 * @ORM\Column(type = "string", nullable = true)
+	 * @var string|null
+	 */
 	private $avatarURL;
 
 
