@@ -3,6 +3,7 @@
 install:
 	composer update
 	php bin/console orm:schema-tool:create
+	php tests/import-fixtures.php
 
 ci: phplint phpstan code-checker coding-standards schema tester
 
