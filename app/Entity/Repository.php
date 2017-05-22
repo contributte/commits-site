@@ -50,6 +50,18 @@ class Repository
 	}
 
 
+	public function getID(): string
+	{
+		return $this->id;
+	}
+
+
+	public function getName(): string
+	{
+		return $this->name;
+	}
+
+
 	public function addCommit(Commit $commit): self
 	{
 		if (!$this->hasCommit($commit)) {
