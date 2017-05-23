@@ -63,3 +63,5 @@ services:
 		factory: Milo\Github\Api
 		setup:
 			- setDefaultParameters({ client_id: %githubAPI.clientID%, client_secret: %githubAPI.clientSecret% })
+
+	- Symfony\Component\Lock\LockFactory( Symfony\Component\Lock\Store\FlockStore( %tempDir%/flocks ) )::createLock('commits-synchronization')
