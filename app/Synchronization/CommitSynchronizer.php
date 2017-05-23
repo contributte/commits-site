@@ -10,8 +10,11 @@ use App\Entity\CommitFile;
 use App\Entity\Repository;
 use App\Facade\Commit\CommitPersister;
 use App\Facade\Commit\CommitsOrderUpdater;
+use App\Entity\Synchronization\RepositoryLog;
 use App\Facade\Commit\UnreachableCommitsDeleter;
+use App\Entity\Synchronization\SynchronizationLog;
 use App\QueryFunction\Commit\CommitsRepositoryShaMapQuery;
+use App\Facade\SynchronizationLog\SynchronizationLogPersister;
 use App\QueryFunction\Repository\RepositoriesSortedByProjectAndNameQuery;
 
 
@@ -25,6 +28,7 @@ final class CommitSynchronizer
 	private Api $github;
 	private UserSynchronizer $userSynchronizer;
 	private CommitPersister $commitPersister;
+	private SynchronizationLogPersister $synchronizationLogPersister;
 
 	/**
 	 * <repository_name> => [<commit_1_sha> => <commit_1_sort>, <commit_2_sha> => <commit_2_sort>, ...]
@@ -40,7 +44,8 @@ final class CommitSynchronizer
 		UnreachableCommitsDeleter $unreachableCommitsDeleter,
 		Api $github,
 		UserSynchronizer $userSynchronizer,
-		CommitPersister $commitPersister
+		CommitPersister $commitPersister,
+		SynchronizationLogPersister $synchronizationLogPersister
 
 	) {
 		$this->github = $github;
@@ -50,21 +55,64 @@ final class CommitSynchronizer
 		$this->repositoriesQuery = $repositoriesQuery;
 		$this->commitsOrderUpdater = $commitsOrderUpdater;
 		$this->unreachableCommitsDeleter = $unreachableCommitsDeleter;
+		$this->synchronizationLogPersister = $synchronizationLogPersister;
 	}
 
 
-	public function synchronize(): void
-	{
-		$repositories = $this->repositoriesQuery->get();
+	public function synchronize(
+		?string $repository = null,
+		?callable $onSynchronizationStart = null,
+		?callable $onRepositoryStart = null,
+		?callable $onCommitStart = null,
+		?callable $onCommitsFinish = null,
+		?callable $onUnreachablesDeleted = null,
+		?callable $onCommitOrderUpdated = null,
+		?callable $onSynchronizationFinish = null
 
-		foreach ($repositories as $repository) {
-			$this->synchronizeRepository($repository);
+	): void {
+		$syncLog = new SynchronizationLog;
+		$repositories = $this->repositoriesQuery->get($repository);
+
+		if ($onSynchronizationStart !== null) {
+			$onSynchronizationStart(count($repositories));
+		}
+
+		foreach ($repositories as $index => $repo) {
+			if ($onRepositoryStart !== null) {
+				$onRepositoryStart($index, $repo);
+			}
+
+			$this->synchronizeRepository(
+				$syncLog,
+				$repo,
+				$onCommitStart,
+				$onCommitsFinish,
+				$onUnreachablesDeleted,
+				$onCommitOrderUpdated
+			);
+		}
+
+		$syncLog->finish();
+
+		$this->synchronizationLogPersister->persist($syncLog);
+
+		if ($onSynchronizationFinish !== null) {
+			$onSynchronizationFinish($syncLog);
 		}
 	}
 
 
-	private function synchronizeRepository(Repository $repository): void
-	{
+	private function synchronizeRepository(
+		SynchronizationLog $syncLog,
+		Repository $repository,
+		?callable $onCommitStart = null,
+		?callable $onCommitsFinish = null,
+		?callable $onUnreachablesDeleted = null,
+		?callable $onCommitOrderUpdated = null
+
+	): void {
+		$repositoryLog = new RepositoryLog($syncLog, $repository);
+
 		$paginator = $this->github->paginator(sprintf('/repos/%s/commits', $repository->getName()), [
 			'per_page' => 100,
 		]);
@@ -73,14 +121,20 @@ final class CommitSynchronizer
 		$allSHAs = [];
 
 		foreach ($paginator as $response) {
+			$repositoryLog->apiCall();
+
 			/** @var \stdClass[] $commits */
 			$commits = $this->github->decode($response);
 
 			foreach ($commits as $commit) {
+				if ($onCommitStart !== null) {
+					$onCommitStart($index, $commit->sha);
+				}
+
 				$allSHAs[] = $commit->sha;
 
 				if (!$this->existsCommit($repository, $commit->sha)) {
-					$this->synchronizeCommit($repository, $commit->sha, $index);
+					$this->synchronizeCommit($repositoryLog, $repository, $commit->sha, $index);
 				}
 
 				if (++$index % 1000 === 0) {
@@ -91,8 +145,24 @@ final class CommitSynchronizer
 
 		$this->commitPersister->flush();
 
-		$this->unreachableCommitsDeleter->delete($repository, $allSHAs);
+		if ($onCommitsFinish !== null) {
+			$onCommitsFinish();
+		}
+
+		$deleted = $this->unreachableCommitsDeleter->delete($repository, $allSHAs);
+		$repositoryLog->deletedCommits($deleted);
+
+		if ($onUnreachablesDeleted !== null) {
+			$onUnreachablesDeleted($deleted);
+		}
+
 		$this->commitsOrderUpdater->update($repository, $allSHAs);
+
+		if ($onCommitOrderUpdated !== null) {
+			$onCommitOrderUpdated();
+		}
+
+		$repositoryLog->finish();
 	}
 
 
@@ -107,6 +177,7 @@ final class CommitSynchronizer
 
 
 	private function synchronizeCommit(
+		RepositoryLog $repositoryLog,
 		Repository $repository,
 		string $sha,
 		int $index
@@ -116,12 +187,15 @@ final class CommitSynchronizer
 			'sha' => $sha,
 		]);
 
+		$repositoryLog->apiCall();
+
 		/** @var \stdClass $remoteCommit */
 		$remoteCommit = $this->github->decode($response);
 
 		$author = $committer = null;
 		if (isset($remoteCommit->author)) {
 			$author = $this->userSynchronizer->synchronize(
+				$repositoryLog,
 				$remoteCommit->author->id,
 				$remoteCommit->author->login,
 				$remoteCommit->author->avatar_url
@@ -130,6 +204,7 @@ final class CommitSynchronizer
 
 		if (isset($remoteCommit->committer)) {
 			$committer = $this->userSynchronizer->synchronize(
+				$repositoryLog,
 				$remoteCommit->committer->id,
 				$remoteCommit->committer->login,
 				$remoteCommit->committer->avatar_url
@@ -174,6 +249,8 @@ final class CommitSynchronizer
 		}
 
 		$this->commitPersister->persistWithoutFlush($localCommit);
+
+		$repositoryLog->newCommit();
 	}
 
 }
