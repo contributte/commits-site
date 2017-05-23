@@ -24,10 +24,6 @@ final class CommitsOrderUpdater
 	/**
 	 * Sometimes commits have same author date (due to rebase)
 	 * so we need to keep the same order as received from GitHub API
-	 *
-	 * @param  Repository $repository
-	 * @param  string[] $currentSHAs
-	 * @param  string[] $newSHAs
 	 */
 	public function update(Repository $repository, array $currentSHAs, array $newSHAs): void
 	{
