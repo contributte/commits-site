@@ -21,7 +21,7 @@ final class UnreachableCommitsDeleter
 	}
 
 
-	public function delete(Repository $repository, array & $allSHAs, string $lastSHA): void
+	public function delete(Repository $repository, array & $allSHAs, string $lastSHA): int
 	{
 		$toDelete = [];
 
@@ -35,20 +35,22 @@ final class UnreachableCommitsDeleter
 			}
 		}
 
-		if (count($toDelete)) {
-			$this->connection->executeUpdate('
-				DELETE FROM `commit`
-				WHERE repository = :repository
-					AND sha IN (:shas)
-
-			', [
-				'repository' => $repository->getName(),
-				'shas' => $toDelete,
-
-			], [
-				'shas' => Connection::PARAM_STR_ARRAY,
-			]);
+		if (!count($toDelete)) {
+			return 0;
 		}
+
+		return $this->connection->executeUpdate('
+			DELETE FROM `commit`
+			WHERE repository = :repository
+				AND sha IN (:shas)
+
+		', [
+			'repository' => $repository->getName(),
+			'shas' => $toDelete,
+
+		], [
+			'shas' => Connection::PARAM_STR_ARRAY,
+		]);
 	}
 
 }

@@ -31,7 +31,7 @@ final class UserSynchronizer
 	}
 
 
-	public function synchronize(int $githubID, string $login, ?string $avatarURL): User
+	public function synchronize(RepositoryLog $repositoryLog, int $githubID, string $login, ?string $avatarURL): User
 	{
 		if (!$this->users) {
 			$this->users = $this->usersQuery->get();
@@ -43,6 +43,7 @@ final class UserSynchronizer
 
 		} else {
 			$local = new User($githubID, $login, $avatarURL);
+			$repositoryLog->newUser();
 		}
 
 		$this->userPersister->persist($local);
