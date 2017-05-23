@@ -55,6 +55,7 @@ services:
 	- App\Facade\Commit\CommitPersister
 	- App\Facade\Commit\CommitsOrderUpdater
 	- App\Facade\Commit\UnreachableCommitsDeleter
+	- App\Facade\SynchronizationLog\SynchronizationLogPersister
 
 	- App\Service\Synchronizer\UserSynchronizer
 	- App\Service\Synchronizer\CommitSynchronizer
@@ -62,3 +63,6 @@ services:
 	- App\QueryFunction\User\UsersIndexedByGithubIdQuery
 	- App\QueryFunction\Commit\CommitsRepositoryShaMapQuery
 	- App\QueryFunction\Repository\RepositoriesSortedByProjectAndNameQuery
+
+	- Symfony\Component\Lock\LockFactory( Symfony\Component\Lock\Store\FlockStore( %tempDir%/flocks ) )::createLock('commits-synchronization')
+	- App\Command\SynchronizeCommand
