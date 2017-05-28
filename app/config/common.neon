@@ -44,7 +44,7 @@ orm.annotations:
 
 
 services:
-	router: App\Router\RouterFactory::createRouter
+	router: App\Router\RouterFactory()::createRouter
 
 	doctrine.dbal.resultCache:
 		factory: Doctrine\Common\Cache\FilesystemCache( %tempDir%/cache/doctrine )
@@ -73,3 +73,7 @@ services:
 	- App\Command\SynchronizeCommand
 
 	- App\Helper\FileMtimeHelper( %wwwDir% )
+
+	- App\QueryFunction\Project\ProjectsSortedQuery
+
+	- implement: App\Control\Navigation\INavigationControlFactory
