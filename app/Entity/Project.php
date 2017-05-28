@@ -60,4 +60,16 @@ class Project
 		$this->repositories = new ArrayCollection;
 	}
 
+
+	public function getName(): string
+	{
+		return $this->name;
+	}
+
+
+	public function getSlug(): string
+	{
+		return $this->slug;
+	}
+
 }
