@@ -1,0 +1,8 @@
+{
+  "name": "nette-commits",
+
+  "dependencies": {
+    "jquery": "^3.2",
+    "bootstrap": "^3.3"
+  }
+}
