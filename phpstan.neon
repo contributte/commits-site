@@ -1,2 +1,4 @@
 parameters:
 	bootstrap: %rootDir%/../../../../app/bootstrap.php
+	universalObjectCratesClasses:
+		- Nette\Application\UI\ITemplate

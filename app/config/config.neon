@@ -29,6 +29,8 @@ console:
 
 dbal:
 	debug: %debugMode%
+	configuration:
+		resultCacheImpl: @doctrine.dbal.resultCache
 	connection:
 		driver: %database.driver%
 		host: %database.host%
@@ -43,7 +45,10 @@ orm.annotations:
 
 
 services:
-	router: App\Router\RouterFactory::createRouter
+	router: App\Router\RouterFactory()::createRouter
+
+	doctrine.dbal.resultCache:
+		factory: Doctrine\Common\Cache\FilesystemCache( %tempDir%/cache/doctrine )
 
 	latte.templateFactory: App\View\TemplateFactory
 
@@ -69,3 +74,7 @@ services:
 	- App\Command\SynchronizeCommand
 
 	- App\Helper\FileMtimeHelper( %wwwDir% )
+
+	- App\QueryFunction\Project\ProjectsSortedQuery
+
+	- implement: App\Control\Navigation\INavigationControlFactory

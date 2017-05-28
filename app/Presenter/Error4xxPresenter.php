@@ -11,6 +11,9 @@ use Nette;
 final class Error4xxPresenter extends Nette\Application\UI\Presenter
 {
 
+	use TPortalPresenter;
+
+
 	public function startup(): void
 	{
 		parent::startup();
