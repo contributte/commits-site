@@ -49,4 +49,16 @@ class Project
 	 */
 	private $repositories;
 
+
+	public function getName(): string
+	{
+		return $this->name;
+	}
+
+
+	public function getSlug(): string
+	{
+		return $this->slug;
+	}
+
 }
