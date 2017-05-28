@@ -10,26 +10,25 @@ require_once __DIR__ . '/bootstrap.php';
 require_once __DIR__ . '/PresenterTestCase.php';
 
 
-final class HomepagePresenterTest extends PresenterTestCase
+final class ProjectPresenterTest extends PresenterTestCase
 {
 
 	public function getPresenterName(): string
 	{
-		return 'Homepage';
+		return 'Project';
 	}
 
 
 	public function testActionDefault(): void
 	{
 		$this->assertTextResponse('GET', [
-			'action' => 'default',
+			'action' => 'commits',
 		]);
 	}
 
 }
 
-
 /** @var IPresenterFactory $presenterFactory */
 $presenterFactory = Bootstrap::boot()->createContainer()->getByType(IPresenterFactory::class);
 
-(new HomepagePresenterTest($presenterFactory))->run();
+(new ProjectPresenterTest($presenterFactory))->run();
