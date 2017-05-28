@@ -3,6 +3,7 @@
 
   "dependencies": {
     "jquery": "^3.2",
-    "bootstrap": "^3.3"
+    "bootstrap": "^3.3",
+    "Font-Awesome": "^4.7"
   }
 }
