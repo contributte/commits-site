@@ -46,6 +46,8 @@ orm.annotations:
 services:
 	router: App\Router\RouterFactory::createRouter
 
+	latte.templateFactory: App\View\TemplateFactory
+
 	-
 		factory: Milo\Github\Api
 		setup:
@@ -66,3 +68,5 @@ services:
 
 	- Symfony\Component\Lock\Factory( Symfony\Component\Lock\Store\FlockStore( %tempDir%/flocks ) )::createLock('commits-synchronization')
 	- App\Command\SynchronizeCommand
+
+	- App\Helper\FileMtimeHelper( %wwwDir% )
