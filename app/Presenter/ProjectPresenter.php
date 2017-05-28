@@ -7,5 +7,9 @@ namespace App\Presenter;
 use Nette\Application\UI\Presenter;
 
 
-final class HomepagePresenter extends Presenter
-{}
+final class ProjectPresenter extends Presenter
+{
+
+	use TPortalPresenter;
+
+}
