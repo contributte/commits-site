@@ -19,6 +19,8 @@ search:
 			- App\Entity\**
 			- App\Control\**
 			- App\Router\RouterFactory
+		extends:
+			- Exception
 
 
 console:
@@ -70,3 +72,8 @@ services:
 	- App\Helper\FileMtimeHelper( %wwwDir% )
 
 	- implement: App\Control\Navigation\INavigationControlFactory
+
+	-
+		implement: App\Control\Grid\CommitsGrid\ICommitsGridFactory
+		parameters: [ App\Entity\Project project ]
+		arguments: [ %project% ]
