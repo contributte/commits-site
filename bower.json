@@ -4,6 +4,11 @@
   "dependencies": {
     "jquery": "^3.2",
     "bootstrap": "^3.3",
-    "Font-Awesome": "^4.7"
+    "clipboard": "^1.7",
+    "bootstrap": "^3.3",
+    "nette-forms": "^2.4",
+    "Font-Awesome": "^4.7",
+    "nette.ajax.js": "^2.3",
+    "twigrid-datagrid": "11.2"
   }
 }
