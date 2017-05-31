@@ -19,14 +19,29 @@ final class ProjectPresenterTest extends PresenterTestCase
 	}
 
 
-	public function testActionDefault(): void
+	/** @dataProvider provideProjectSlugs */
+	public function testActionCommits(string $projectSlug): void
 	{
 		$this->assertTextResponse('GET', [
 			'action' => 'commits',
+			'projectSlug' => $projectSlug,
 		]);
 	}
 
+
+	public function provideProjectSlugs(): array
+	{
+		return [
+			['docs'],
+			['framework'],
+			['promo'],
+			['tester'],
+			['tools'],
+		];
+	}
+
 }
+
 
 /** @var IPresenterFactory $presenterFactory */
 $presenterFactory = Bootstrap::boot()->createContainer()->getByType(IPresenterFactory::class);
