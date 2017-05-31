@@ -72,4 +72,17 @@ class Project
 		return $this->slug;
 	}
 
+
+	public function hasMultipleRepositories(): bool
+	{
+		return count($this->repositories) > 1;
+	}
+
+
+	/** @return Repository[] */
+	public function getRepositories(): array
+	{
+		return $this->repositories->toArray();
+	}
+
 }
