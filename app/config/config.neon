@@ -76,5 +76,14 @@ services:
 	- App\Helper\FileMtimeHelper( %wwwDir% )
 
 	- App\QueryFunction\Project\ProjectsSortedQuery
+	- App\QueryFunction\Commit\CommitsFilteredByProjectQuery
+	- App\QueryFunction\Commit\CommitsFilteredByProjectCountQuery
+	- App\QueryFunction\Project\ProjectBySlugWithRepositoriesQuery
+	- App\QueryFunction\Commit\CommitsFilteredByProjectQueryFactory
 
 	- implement: App\Control\Navigation\INavigationControlFactory
+
+	-
+		implement: App\Control\Grid\CommitsGrid\ICommitsGridFactory
+		parameters: [ App\Entity\Project project ]
+		arguments: [ %project% ]

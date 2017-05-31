@@ -7,6 +7,7 @@
 		<meta name="viewport" content="width=device-width">
 		<link rel="shortcut icon" href="{$basePath}/{='favicon.ico' |mtime}">
 		<link rel="stylesheet" href="{$basePath}/{='assets/vendor/bootstrap/dist/css/bootstrap.css' |mtime}">
+		<link rel="stylesheet" href="{$basePath}/{='assets/vendor/twigrid-datagrid/assets/twigrid.datagrid.css' |mtime}">
 		<link rel="stylesheet" href="{$basePath}/{='assets/vendor/Font-Awesome/css/font-awesome.css' |mtime}">
 		<link rel="stylesheet" href="{$basePath}/{='assets/style.css' |mtime}">
 	</head>
@@ -28,14 +29,21 @@
 			</div>
 		</nav>
 
-		<p n:foreach="$flashes as $flash" n:class="alert, 'alert-' . ($flash->type === error ? danger : $flash->type)">
-			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			{$flash->message}
-		</p>
+		<div class="container">
+			<p n:foreach="$flashes as $flash" n:class="alert, 'alert-' . ($flash->type === error ? danger : $flash->type)">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				{$flash->message}
+			</p>
 
-		{block content /}
+			{block content /}
+		</div>
 
+		<script src="{$basePath}/{='assets/vendor/nette-forms/src/assets/netteForms.js' |mtime}"></script>
 		<script src="{$basePath}/{='assets/vendor/jquery/dist/jquery.js' |mtime}"></script>
 		<script src="{$basePath}/{='assets/vendor/bootstrap/dist/js/bootstrap.js' |mtime}"></script>
+		<script src="{$basePath}/{='assets/vendor/nette.ajax.js/nette.ajax.js' |mtime}"></script>
+		<script src="{$basePath}/{='assets/vendor/twigrid-datagrid/assets/twigrid.datagrid.js' |mtime}"></script>
+		<script src="{$basePath}/{='assets/vendor/clipboard/dist/clipboard.js' |mtime}"></script>
+		<script src="{$basePath}/{='assets/script.js' |mtime}"></script>
 	</body>
 </html>

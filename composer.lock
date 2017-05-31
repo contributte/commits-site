@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "29340a08cbd79b9914768198298a3d1d",
+    "content-hash": "da5ad0d38372c5e91eb1a9030195294d",
     "packages": [
         {
             "name": "contributte/console",
@@ -2821,6 +2821,59 @@
                 "profiler"
             ],
             "time": "2019-03-01T02:12:13+00:00"
+        },
+        {
+            "name": "uestla/twigrid",
+            "version": "11.2.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/uestla/TwiGrid.git",
+                "reference": "04408675566299350a1a934adb558eb80f144be3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/uestla/TwiGrid/zipball/04408675566299350a1a934adb558eb80f144be3",
+                "reference": "04408675566299350a1a934adb558eb80f144be3",
+                "shasum": ""
+            },
+            "require": {
+                "latte/latte": "^2.4",
+                "nette/application": "^2.4",
+                "nette/forms": "^2.4",
+                "nette/http": "^2.4",
+                "nette/utils": "^2.4",
+                "php": ">= 7.1.0"
+            },
+            "require-dev": {
+                "nette/tester": "^1.7",
+                "phpstan/phpstan": "^0.6",
+                "phpstan/phpstan-nette": "^0.6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "TwiGrid": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Petr Kessler",
+                    "homepage": "https://kesspess.cz",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Experimental DataGrid for Nette Framework",
+            "homepage": "http://github.com/uestla/twigrid",
+            "keywords": [
+                "addon",
+                "datagrid",
+                "nette"
+            ],
+            "time": "2017-05-31T15:14:01+00:00"
         }
     ],
     "packages-dev": [

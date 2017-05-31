@@ -10,6 +10,7 @@ use Nette\Caching\IStorage;
 use App\Helper\FileMtimeHelper;
 use Nette\Application\UI\Control;
 use Nette\Application\UI\ITemplate;
+use App\Helper\TimeAgoInWordsHelper;
 use Nette\Bridges\ApplicationLatte\ILatteFactory;
 
 
@@ -42,6 +43,10 @@ final class TemplateFactory extends \Nette\Bridges\ApplicationLatte\TemplateFact
 		$template->getLatte()
 			->addFilter('mtime', function (string $relPath): string {
 				return sprintf('%s?%d', $relPath, $this->fileMtimeHelper->getMtime($relPath));
+			})
+
+			->addFilter('timeAgoInWords', static function ($time): ?string {
+				return TimeAgoInWordsHelper::convert($time);
 			})
 		;
 
