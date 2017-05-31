@@ -56,6 +56,12 @@ class Repository
 	}
 
 
+	public function getBasename(): string
+	{
+		return basename($this->name);
+	}
+
+
 	public function addCommit(Commit $commit): self
 	{
 		if (!$this->hasCommit($commit)) {
