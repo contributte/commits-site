@@ -35,7 +35,9 @@ final class RouterFactory
 			}
 
 			if (count($projectSlugs)) {
-				$router[] = new Route('[<projectSlug=' . reset($projectSlugs) . ' ' . implode('|', $projectSlugs) . '>]', 'Project:commits');
+				$projectMask = '<projectSlug=' . reset($projectSlugs) . ' ' . implode('|', $projectSlugs) . '>';
+				$router[] = new Route('rss/' . $projectMask, 'ProjectRss:feed');
+				$router[] = new Route($projectMask, 'Project:commits');
 
 			} else {
 				$router[] = new Route('', function () {
