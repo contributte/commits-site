@@ -41,7 +41,9 @@ final class RouterFactory
 				});
 
 			} else {
-				$router[] = new Route('[<projectSlug=' . reset($projectSlugs) . ' ' . implode('|', $projectSlugs) . '>]', 'Project:commits');
+				$projectMask = '<projectSlug=' . reset($projectSlugs) . ' ' . implode('|', $projectSlugs) . '>';
+				$router[] = new Route('rss/' . $projectMask, 'ProjectRss:feed');
+				$router[] = new Route($projectMask, 'Project:commits');
 			}
 
 		} catch (TableNotFoundException $e) { // schema may not exist yet

@@ -76,11 +76,13 @@ services:
 
 	- App\Helper\FileMtimeHelper( %wwwDir% )
 
+	- App\QueryFunction\Project\ProjectBySlugQuery
 	- App\QueryFunction\Project\ProjectsSortedQuery
 	- App\QueryFunction\Commit\CommitsFilteredByProjectQuery
 	- App\QueryFunction\Commit\CommitsFilteredByProjectCountQuery
 	- App\QueryFunction\Project\ProjectBySlugWithRepositoriesQuery
 	- App\QueryFunction\Commit\CommitsFilteredByProjectQueryFactory
+	- App\QueryFunction\Commit\CommitsLatestByProjectWithFilesQuery
 
 	- implement: App\Control\Navigation\INavigationControlFactory
 
