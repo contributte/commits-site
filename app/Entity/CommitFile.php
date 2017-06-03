@@ -87,4 +87,22 @@ class CommitFile
 		$this->changes = $changes;
 	}
 
+
+	public function getFilename(): string
+	{
+		return $this->filename;
+	}
+
+
+	public function getAdditions(): int
+	{
+		return $this->additions;
+	}
+
+
+	public function getDeletions(): int
+	{
+		return $this->deletions;
+	}
+
 }
