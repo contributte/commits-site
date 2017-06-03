@@ -252,6 +252,18 @@ class Commit
 	}
 
 
+	public function getAdditions(): int
+	{
+		return $this->additions;
+	}
+
+
+	public function getDeletions(): int
+	{
+		return $this->deletions;
+	}
+
+
 	public function addFile(CommitFile $file): self
 	{
 		if (!$this->hasFile($file)) {
@@ -265,6 +277,13 @@ class Commit
 	public function hasFile(CommitFile $file): bool
 	{
 		return $this->files->contains($file);
+	}
+
+
+	/** @return CommitFile[] */
+	public function getFiles(): array
+	{
+		return $this->files->toArray();
 	}
 
 }
