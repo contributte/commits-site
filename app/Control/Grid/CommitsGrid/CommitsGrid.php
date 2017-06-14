@@ -10,6 +10,7 @@ use App\Entity\Project;
 use Nette\Forms\Container;
 use TwiGrid\Components\Column;
 use TwiGrid\Components\Translator;
+use Nette\Application\UI\ITemplate;
 use App\Repository\CommitRepository;
 use App\QueryFunction\Commit\CommitsFilteredByProjectQuery;
 use App\QueryFunction\Commit\CommitsFilteredByProjectCountQuery;
@@ -39,6 +40,17 @@ final class CommitsGrid extends DataGrid
 		$this->project = $project;
 		$this->commitsCountQuery = $commitsCountQuery;
 		$this->commitsFilteredQuery = $commitsFilteredQuery;
+	}
+
+
+	protected function createTemplate(): ITemplate
+	{
+		$template = parent::createTemplate();
+
+		$template->project = $this->project;
+		$this->redrawControl('filters-toggler');
+
+		return $template;
 	}
 
 
