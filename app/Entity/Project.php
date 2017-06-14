@@ -79,6 +79,13 @@ class Project
 	}
 
 
+	public function getFirstRepository(): ?Repository
+	{
+		$first = $this->repositories->first();
+		return $first === false ? null : $first;
+	}
+
+
 	/** @return Repository[] */
 	public function getRepositories(): array
 	{
