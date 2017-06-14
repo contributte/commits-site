@@ -68,6 +68,12 @@ class Project
 	}
 
 
+	public function getFirstRepository(): ?Repository
+	{
+		return $this->repositories->first() ?: null;
+	}
+
+
 	/** @return Repository[] */
 	public function getRepositories(): array
 	{
