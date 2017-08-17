@@ -45,6 +45,7 @@ INSERT IGNORE INTO `repository` (`name`, `project_id`) VALUES
 
 -- Tools
 ('nette/code-checker',	'8c83d4f1-dd34-4724-88b9-a67be607e363'),
+('nette/coding-standard',	'8c83d4f1-dd34-4724-88b9-a67be607e363'),
 ('nette/command-line',	'8c83d4f1-dd34-4724-88b9-a67be607e363'),
 
 -- Tester
