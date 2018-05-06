@@ -29,9 +29,41 @@
 	"autoload": {
 		"classmap": ["app/Bootstrap.php"]
 	},
+	"require-dev": {
+		"php-parallel-lint/php-parallel-lint": "^1.3",
+		"php-parallel-lint/php-console-highlighter": "^1.0",
+		"nette/code-checker": "^3.2",
+		"nette/tester": "^2.4",
+		"phpstan/phpstan": "^1.7",
+		"phpstan/extension-installer": "^1.1",
+		"phpstan/phpstan-strict-rules": "^1.0",
+		"phpstan/phpstan-deprecation-rules": "^1.0",
+		"phpstan/phpstan-nette": "^1.0",
+		"slevomat/coding-standard": "^8.0"
+	},
 	"autoload-dev": {
 		"files": [
 			"app/functions.php"
 		]
+	},
+	"scripts": {
+		"ci": [
+			"@phplint",
+			"@phpstan",
+			"@code-checker",
+			"@coding-standards",
+			"@tester"
+		],
+		"phplint": "parallel-lint --colors app/ tests/ www/",
+		"phpstan": "phpstan analyse",
+		"code-checker": "code-checker --eol --fix --strict-types -d app/ -d tests/ -d www/",
+		"coding-standards": "phpcs --standard=phpcs.xml",
+		"tester": "tester -C --colors 1 --log var/log/tests.log --temp var/temp tests/"
+	},
+	"config": {
+		"allow-plugins": {
+			"phpstan/extension-installer": true,
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		}
 	}
 }
