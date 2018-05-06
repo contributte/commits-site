@@ -5,6 +5,7 @@ namespace App\Presenters;
 use Nette;
 
 
+/** @property Nette\Bridges\ApplicationLatte\Template $template */
 final class Error4xxPresenter extends Nette\Application\UI\Presenter
 {
 
