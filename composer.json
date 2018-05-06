@@ -29,9 +29,29 @@
 	"autoload": {
 		"classmap": ["app/Bootstrap.php"]
 	},
+	"require-dev": {
+		"nette/code-checker": "^3.1",
+		"nette/tester": "^2.3",
+		"phpstan/phpstan": "^0.12.2",
+		"phpstan/extension-installer": "^1.0",
+		"phpstan/phpstan-strict-rules": "^0.12.0",
+		"phpstan/phpstan-nette": "^0.12.0"
+	},
 	"autoload-dev": {
 		"files": [
 			"app/shortcuts.php"
 		]
+	},
+	"scripts": {
+		"ci": [
+			"@phpstan",
+			"@code-checker",
+			"@tester"
+		],
+		"phpstan": "phpstan analyse",
+		"code-checker": ["@code-checker-dir app/", "@code-checker-dir tests/"],
+		"code-checker-dir": "code-checker --eol --fix --strict-types -d",
+		"tester": "tester -j 8 -C --colors 1 --log var/log/tests.log --temp var/temp tests/",
+		"clear-app-cache": "rm -rf var/temp/cache"
 	}
 }
