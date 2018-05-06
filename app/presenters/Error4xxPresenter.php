@@ -20,7 +20,7 @@ final class Error4xxPresenter extends Presenter
 
 		$request = $this->getRequest();
 
-		if (!$request || !$request->isMethod(Request::FORWARD)) {
+		if ($request === null || !$request->isMethod(Request::FORWARD)) {
 			$this->error();
 		}
 	}
