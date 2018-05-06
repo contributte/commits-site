@@ -1,0 +1,10 @@
+parameters:
+	level: max
+	paths:
+		- app/
+		- www/
+		- tests/
+	tmpDir: var/temp
+	autoload_directories:
+		- app/
+		- tests/
