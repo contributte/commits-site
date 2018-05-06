@@ -29,9 +29,33 @@
 	"autoload": {
 		"classmap": ["app/Bootstrap.php"]
 	},
+	"require-dev": {
+		"jakub-onderka/php-parallel-lint": "^1.0",
+		"jakub-onderka/php-console-highlighter": "^0.4.0",
+		"nette/code-checker": "^3.1",
+		"nette/tester": "^2.3",
+		"phpstan/phpstan": "^0.12.2",
+		"phpstan/extension-installer": "^1.0",
+		"phpstan/phpstan-strict-rules": "^0.12.0",
+		"phpstan/phpstan-nette": "^0.12.0"
+	},
 	"autoload-dev": {
 		"files": [
 			"app/shortcuts.php"
 		]
+	},
+	"scripts": {
+		"ci": [
+			"@phplint",
+			"@code-checker app/",
+			"@code-checker tests/",
+			"@phpstan",
+			"@tester"
+		],
+		"phplint": "parallel-lint --colors app/ tests/",
+		"code-checker": "code-checker --eol --fix --strict-types -d",
+		"phpstan": "phpstan analyse",
+		"tester": "tester -j 8 -C --colors 1 --log var/log/tests.log --temp var/temp tests/",
+		"clear-app-cache": "rm -rf var/temp/cache"
 	}
 }
