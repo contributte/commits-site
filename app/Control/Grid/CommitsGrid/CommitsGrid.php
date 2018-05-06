@@ -10,6 +10,7 @@ use App\Entity\Project;
 use Nette\Forms\Container;
 use TwiGrid\Components\Column;
 use TwiGrid\Components\Translator;
+use App\Form\Controls\RawTextInput;
 use Nette\Application\UI\ITemplate;
 use App\Repository\CommitRepository;
 use App\QueryFunction\Commit\CommitsFilteredByProjectQuery;
@@ -89,7 +90,7 @@ final class CommitsGrid extends DataGrid
 			}
 
 			$c->addText('author');
-			$c->addText('message');
+			$c['message'] = new RawTextInput();
 			$c->addText('sha');
 		});
 
