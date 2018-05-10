@@ -31,6 +31,15 @@
 		</nav>
 
 		<div class="container">
+			{ifset $urlChangeWarning}
+				<p class="alert alert-warning">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<strong>WARNING:</strong>
+					You've come from the old URL <em>nette-commits.cz</em> which changed to <a href="http://commits.planette.io/"><strong>commits.planette.io/</strong></a>.<br>
+					Please update all your RSS feeds before 4. 6. 2018 when the old domain expires!
+				</p>
+			{/ifset}
+
 			<p n:foreach="$flashes as $flash" n:class="alert, 'alert-' . ($flash->type === error ? danger : $flash->type)">
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				{$flash->message}
