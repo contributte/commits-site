@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="author" content="kesspess">
-		<title>{ifset title}{include title |stripHtml|trim} | {/ifset}nette commits</title>
+		<title>{ifset title}{include title |stripHtml|trim} | {/ifset}planette commits</title>
 		<meta name="viewport" content="width=device-width">
 		<link rel="shortcut icon" href="{$basePath}/{='favicon.ico' |mtime}">
 		<link rel="stylesheet" href="{$basePath}/{='assets/vendor/bootstrap/dist/css/bootstrap.css' |mtime}">
@@ -23,7 +23,7 @@
 						<span class="icon-bar"></span>
 					</button>
 					<div id="spinner"></div>
-					<h1><a class="navbar-brand" n:href="Project:commits, projectSlug => framework">nette commits</a></h1>
+					<h1><a class="navbar-brand" n:href="Project:commits, projectSlug => framework">planette commits</a></h1>
 				</div>
 
 				{control navigation}

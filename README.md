@@ -1,5 +1,5 @@
 
-# [nette-commits](http://nette-commits.cz/)
+# [planette commits](http://commits.planette.io/)
 
 Aggregation of all [nette](https://github.com/nette)/* repositories.
 
