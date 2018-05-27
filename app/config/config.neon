@@ -1,6 +1,13 @@
 extensions:
 	console: Contributte\Console\DI\ConsoleExtension( %consoleMode% )
 
+	dbal: Nettrine\DBAL\DI\DbalExtension
+	dbal.console: Nettrine\DBAL\DI\DbalConsoleExtension
+
+	orm: Nettrine\ORM\DI\OrmExtension
+	orm.annotations: Nettrine\ORM\DI\OrmAnnotationsExtension
+	orm.console: Nettrine\ORM\DI\OrmConsoleExtension
+
 
 parameters:
 
@@ -18,6 +25,21 @@ session:
 
 console:
 	url: http://commits.planette.io
+
+
+dbal:
+	debug: %debugMode%
+	connection:
+		driver: %database.driver%
+		host: %database.host%
+		user: %database.user%
+		password: %database.password%
+		dbname: %database.dbname%
+
+
+orm.annotations:
+	paths:
+		- %appDir%/Entity
 
 
 services:
