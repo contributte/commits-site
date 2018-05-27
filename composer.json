@@ -24,7 +24,8 @@
 		"nette/security": "^3.0",
 		"nette/utils": "^3.0",
 		"latte/latte": "^2.8",
-		"tracy/tracy": "^2.6"
+		"tracy/tracy": "^2.6",
+		"contributte/console": "^0.8.0"
 	},
 	"autoload": {
 		"classmap": ["app/Bootstrap.php"]
