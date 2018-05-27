@@ -25,7 +25,8 @@
 		"nette/utils": "^3.0",
 		"latte/latte": "^2.5",
 		"tracy/tracy": "^2.6",
-		"ramsey/uuid": "^3.8"
+		"ramsey/uuid": "^3.8",
+		"contributte/console": "^0.7.1"
 	},
 	"autoload": {
 		"classmap": ["app/Bootstrap.php"]
