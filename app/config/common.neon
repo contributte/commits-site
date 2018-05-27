@@ -1,6 +1,13 @@
 extensions:
 	console: Contributte\Console\DI\ConsoleExtension( %consoleMode% )
 
+	dbal: Nettrine\DBAL\DI\DbalExtension
+	dbal.console: Nettrine\DBAL\DI\DbalConsoleExtension
+
+	orm: Nettrine\ORM\DI\OrmExtension
+	orm.annotations: Nettrine\ORM\DI\OrmAnnotationsExtension
+	orm.console: Nettrine\ORM\DI\OrmConsoleExtension
+
 
 parameters:
 
@@ -20,5 +27,24 @@ console:
 	url: https://commits.nette.org
 
 
+dbal:
+	debug:
+		panel: %debugMode%
+	connection:
+		driver: %database.driver%
+		host: %database.host%
+		user: %database.user%
+		password: %database.password%
+		dbname: %database.dbname%
+
+
+orm.annotations:
+	paths:
+		- %appDir%/Entity
+
+
 services:
 	router: App\Router\RouterFactory::createRouter
+
+	doctrine.dbal.resultCache:
+		factory: Doctrine\Common\Cache\FilesystemCache( %tempDir%/cache/doctrine )
