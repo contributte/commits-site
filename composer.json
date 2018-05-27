@@ -25,7 +25,8 @@
 		"nette/utils": "^3.0",
 		"latte/latte": "^2.8",
 		"tracy/tracy": "^2.6",
-		"contributte/console": "^0.8.0"
+		"contributte/console": "^0.8.0",
+		"nettrine/orm": "^0.6.0"
 	},
 	"autoload": {
 		"classmap": ["app/Bootstrap.php"]
@@ -51,11 +52,16 @@
 			"@code-checker app/",
 			"@code-checker tests/",
 			"@phpstan",
+			"@schema",
 			"@tester"
 		],
 		"phplint": "parallel-lint --colors app/ tests/",
 		"code-checker": "code-checker --eol --fix --strict-types -d",
 		"phpstan": "phpstan analyse",
+		"schema": [
+			"@clear-app-cache",
+			"@php bin/console orm:validate-schema --skip-sync"
+		],
 		"tester": "tester -j 8 -C --colors 1 --log var/log/tests.log --temp var/temp tests/",
 		"clear-app-cache": "rm -rf var/temp/cache"
 	}
