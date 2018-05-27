@@ -1,0 +1,15 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+use Nette\DI\Container;
+use Symfony\Component\Console\Application;
+
+/** @var Container $container */
+$container = require_once __DIR__ . '/../app/bootstrap.php';
+
+/** @var Application $application */
+$application = $container->getByType(Application::class);
+
+exit($application->run());

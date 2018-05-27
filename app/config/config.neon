@@ -1,3 +1,7 @@
+extensions:
+	console: Contributte\Console\DI\ConsoleExtension( %consoleMode% )
+
+
 parameters:
 
 
@@ -10,6 +14,10 @@ application:
 session:
 	expiration: 14 days
 	save_path: %tempDir%/sessions
+
+
+console:
+	url: http://commits.planette.io
 
 
 services:
