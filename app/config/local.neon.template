@@ -1,2 +1,8 @@
 parameters:
 
+	database:
+		driver:
+		host:
+		user:
+		password:
+		dbname:

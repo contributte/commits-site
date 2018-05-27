@@ -9,6 +9,8 @@ stages:
     - Code Checks
     - test
 
+services: mysql
+
 before_install: mv tests/local.travis.neon app/config/local.neon
 
 install: composer install --no-interaction --prefer-source
