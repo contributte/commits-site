@@ -29,6 +29,7 @@ INSERT IGNORE INTO `repository` (`name`, `project_id`) VALUES
 ('nette/php-generator',	'8d6fe94a-42c8-4bcf-89f0-b70725701999'),
 ('nette/reflection',	'8d6fe94a-42c8-4bcf-89f0-b70725701999'),
 ('nette/robot-loader',	'8d6fe94a-42c8-4bcf-89f0-b70725701999'),
+('nette/routing',	'8d6fe94a-42c8-4bcf-89f0-b70725701999'),
 ('nette/safe-stream',	'8d6fe94a-42c8-4bcf-89f0-b70725701999'),
 ('nette/security',	'8d6fe94a-42c8-4bcf-89f0-b70725701999'),
 ('nette/tokenizer',	'8d6fe94a-42c8-4bcf-89f0-b70725701999'),
@@ -41,12 +42,14 @@ INSERT IGNORE INTO `repository` (`name`, `project_id`) VALUES
 -- Promo
 ('nette/examples',	'f9015c35-1092-49c4-bad6-f1ad1cfd3660'),
 ('nette/sandbox',	'f9015c35-1092-49c4-bad6-f1ad1cfd3660'),
+('nette/tutorial-quickstart',	'f9015c35-1092-49c4-bad6-f1ad1cfd3660'),
 ('nette/web-project',	'f9015c35-1092-49c4-bad6-f1ad1cfd3660'),
 
 -- Tools
 ('nette/code-checker',	'8c83d4f1-dd34-4724-88b9-a67be607e363'),
 ('nette/coding-standard',	'8c83d4f1-dd34-4724-88b9-a67be607e363'),
 ('nette/command-line',	'8c83d4f1-dd34-4724-88b9-a67be607e363'),
+('nette/type-fixer',	'8c83d4f1-dd34-4724-88b9-a67be607e363'),
 
 -- Tester
 ('nette/tester',	'83579ec5-30f3-4fa3-b768-4c30743bdf11');
