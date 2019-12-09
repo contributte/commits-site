@@ -39,7 +39,7 @@
 		"jakub-onderka/php-parallel-lint": "^1.0",
 		"jakub-onderka/php-console-highlighter": "^0.4.0",
 		"nette/code-checker": "^3.1",
-		"phpstan/phpstan-shim": "^0.11.16",
+		"phpstan/phpstan-shim": "^0.12.0",
 		"phpstan/extension-installer": "^1.0",
 		"phpstan/phpstan-strict-rules": "^0.11.1",
 		"phpstan/phpstan-nette": "^0.11.1",
