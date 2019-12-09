@@ -1882,7 +1882,7 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "🍸 Nette NEON: encodes and decodes NEON file format.",
+            "description": "? Nette NEON: encodes and decodes NEON file format.",
             "homepage": "http://ne-on.org",
             "keywords": [
                 "export",
@@ -2130,16 +2130,16 @@
         },
         {
             "name": "nette/security",
-            "version": "v3.0.1",
+            "version": "v3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/security.git",
-                "reference": "d4525fe0bc50f8edd96ffad0c958fb7f657aa1d9"
+                "reference": "f18cf84a87c241d74d87b484a694cefe18c17061"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/security/zipball/d4525fe0bc50f8edd96ffad0c958fb7f657aa1d9",
-                "reference": "d4525fe0bc50f8edd96ffad0c958fb7f657aa1d9",
+                "url": "https://api.github.com/repos/nette/security/zipball/f18cf84a87c241d74d87b484a694cefe18c17061",
+                "reference": "f18cf84a87c241d74d87b484a694cefe18c17061",
                 "shasum": ""
             },
             "require": {
@@ -2190,7 +2190,7 @@
                 "authorization",
                 "nette"
             ],
-            "time": "2019-04-14T20:36:23+00:00"
+            "time": "2019-10-16T11:23:11+00:00"
         },
         {
             "name": "nette/utils",
@@ -3598,6 +3598,7 @@
                 "MIT"
             ],
             "description": "PHPStan Phar distribution",
+            "abandoned": "phpstan/phpstan",
             "time": "2019-09-17T11:49:39+00:00"
         },
         {
