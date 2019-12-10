@@ -31,6 +31,7 @@ INSERT IGNORE INTO `repository` (`name`, `project_id`) VALUES
 ('nette/reflection',	'8d6fe94a-42c8-4bcf-89f0-b70725701999'),
 ('nette/robot-loader',	'8d6fe94a-42c8-4bcf-89f0-b70725701999'),
 ('nette/routing',	'8d6fe94a-42c8-4bcf-89f0-b70725701999'),
+('nette/safe',	'8d6fe94a-42c8-4bcf-89f0-b70725701999'),
 ('nette/safe-stream',	'8d6fe94a-42c8-4bcf-89f0-b70725701999'),
 ('nette/schema',	'8d6fe94a-42c8-4bcf-89f0-b70725701999'),
 ('nette/security',	'8d6fe94a-42c8-4bcf-89f0-b70725701999'),
