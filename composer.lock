@@ -1439,16 +1439,16 @@
         },
         {
             "name": "nette/database",
-            "version": "v3.0.4",
+            "version": "v3.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/database.git",
-                "reference": "e17242a71a251cd09e209c1e2bdb530112a6efa8"
+                "reference": "dd75e74d6e086ac4d0b301ae33b8ae6a7cad2a81"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/database/zipball/e17242a71a251cd09e209c1e2bdb530112a6efa8",
-                "reference": "e17242a71a251cd09e209c1e2bdb530112a6efa8",
+                "url": "https://api.github.com/repos/nette/database/zipball/dd75e74d6e086ac4d0b301ae33b8ae6a7cad2a81",
+                "reference": "dd75e74d6e086ac4d0b301ae33b8ae6a7cad2a81",
                 "shasum": ""
             },
             "require": {
@@ -1464,6 +1464,7 @@
                 "mockery/mockery": "^1.0.0",
                 "nette/di": "^v3.0",
                 "nette/tester": "^2.0",
+                "phpstan/phpstan-nette": "^0.12",
                 "tracy/tracy": "^2.4"
             },
             "type": "library",
@@ -1507,7 +1508,7 @@
                 "queries",
                 "sqlite"
             ],
-            "time": "2019-11-19T18:28:25+00:00"
+            "time": "2019-12-13T18:06:11+00:00"
         },
         {
             "name": "nette/di",
@@ -1906,7 +1907,7 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "🍸 Nette NEON: encodes and decodes NEON file format.",
+            "description": "? Nette NEON: encodes and decodes NEON file format.",
             "homepage": "http://ne-on.org",
             "keywords": [
                 "export",
