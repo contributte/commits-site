@@ -1907,7 +1907,7 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "🍸 Nette NEON: encodes and decodes NEON file format.",
+            "description": "? Nette NEON: encodes and decodes NEON file format.",
             "homepage": "http://ne-on.org",
             "keywords": [
                 "export",
@@ -2735,16 +2735,16 @@
         },
         {
             "name": "symfony/lock",
-            "version": "v5.0.1",
+            "version": "v5.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/lock.git",
-                "reference": "527620c4b6105d28acbc32d29238a075e94bf889"
+                "reference": "7ccaee23cc5b8884c9700eef4ccee03f85ff7821"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/lock/zipball/527620c4b6105d28acbc32d29238a075e94bf889",
-                "reference": "527620c4b6105d28acbc32d29238a075e94bf889",
+                "url": "https://api.github.com/repos/symfony/lock/zipball/7ccaee23cc5b8884c9700eef4ccee03f85ff7821",
+                "reference": "7ccaee23cc5b8884c9700eef4ccee03f85ff7821",
                 "shasum": ""
             },
             "require": {
@@ -2797,7 +2797,7 @@
                 "redlock",
                 "semaphore"
             ],
-            "time": "2019-11-18T17:27:11+00:00"
+            "time": "2019-12-03T16:35:18+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
