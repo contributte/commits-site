@@ -26,7 +26,7 @@
 		"latte/latte": "^2.5",
 		"tracy/tracy": "^2.6",
 		"ramsey/uuid": "^3.8",
-		"contributte/console": "^0.7.1",
+		"contributte/console": "^0.8.0",
 		"nettrine/orm": "^0.4.0",
 		"milo/github-api": "^1.4",
 		"symfony/lock": "^5.0",
