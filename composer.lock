@@ -1105,7 +1105,7 @@
                 "template",
                 "twig"
             ],
-            "time": "2020-01-03T19:26:04+00:00"
+            "time": "2020-01-03T22:37:05+00:00"
         },
         {
             "name": "milo/github-api",
@@ -2164,20 +2164,20 @@
         },
         {
             "name": "nette/security",
-            "version": "v3.0.2",
+            "version": "v3.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/security.git",
-                "reference": "f18cf84a87c241d74d87b484a694cefe18c17061"
+                "reference": "f53dcb32d1103669e9a639ebb1500ce8fc642c53"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/security/zipball/f18cf84a87c241d74d87b484a694cefe18c17061",
-                "reference": "f18cf84a87c241d74d87b484a694cefe18c17061",
+                "url": "https://api.github.com/repos/nette/security/zipball/f53dcb32d1103669e9a639ebb1500ce8fc642c53",
+                "reference": "f53dcb32d1103669e9a639ebb1500ce8fc642c53",
                 "shasum": ""
             },
             "require": {
-                "nette/utils": "^2.4 || ^3.0",
+                "nette/utils": "^3.1",
                 "php": ">=7.1"
             },
             "conflict": {
@@ -2187,6 +2187,7 @@
                 "nette/di": "^3.0.0",
                 "nette/http": "^3.0.0",
                 "nette/tester": "^2.0",
+                "phpstan/phpstan-nette": "^0.12",
                 "tracy/tracy": "^2.4"
             },
             "type": "library",
@@ -2203,8 +2204,8 @@
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause",
-                "GPL-2.0",
-                "GPL-3.0"
+                "GPL-2.0-only",
+                "GPL-3.0-only"
             ],
             "authors": [
                 {
@@ -2224,7 +2225,7 @@
                 "authorization",
                 "nette"
             ],
-            "time": "2019-10-16T11:23:11+00:00"
+            "time": "2020-01-13T14:58:04+00:00"
         },
         {
             "name": "nette/utils",
