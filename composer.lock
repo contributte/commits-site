@@ -3285,20 +3285,21 @@
             ],
             "description": "This tool check syntax of PHP files about 20x faster than serial check.",
             "homepage": "https://github.com/JakubOnderka/PHP-Parallel-Lint",
+            "abandoned": "php-parallel-lint/php-parallel-lint",
             "time": "2018-02-24T15:31:20+00:00"
         },
         {
             "name": "nette/code-checker",
-            "version": "v3.1.0",
+            "version": "v3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/code-checker.git",
-                "reference": "6e7f692dcfdf14a130db57d30ed1ef53d3a45535"
+                "reference": "91171ffee62e8f59eaaf1fb8d0ad2a1f9eb5339e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/code-checker/zipball/6e7f692dcfdf14a130db57d30ed1ef53d3a45535",
-                "reference": "6e7f692dcfdf14a130db57d30ed1ef53d3a45535",
+                "url": "https://api.github.com/repos/nette/code-checker/zipball/91171ffee62e8f59eaaf1fb8d0ad2a1f9eb5339e",
+                "reference": "91171ffee62e8f59eaaf1fb8d0ad2a1f9eb5339e",
                 "shasum": ""
             },
             "require": {
@@ -3314,6 +3315,7 @@
             },
             "require-dev": {
                 "nette/tester": "^2.0",
+                "phpstan/phpstan": "^0.12",
                 "tracy/tracy": "^2.6"
             },
             "bin": [
@@ -3333,8 +3335,8 @@
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause",
-                "GPL-2.0",
-                "GPL-3.0"
+                "GPL-2.0-only",
+                "GPL-3.0-only"
             ],
             "authors": [
                 {
@@ -3348,7 +3350,7 @@
                 "code",
                 "nette"
             ],
-            "time": "2019-04-03T20:40:58+00:00"
+            "time": "2020-02-11T15:08:39+00:00"
         },
         {
             "name": "nette/command-line",
