@@ -2781,16 +2781,16 @@
         },
         {
             "name": "symfony/lock",
-            "version": "v5.0.6",
+            "version": "v5.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/lock.git",
-                "reference": "9ec22eef34e93964ad1a7d55389de4cf7482e731"
+                "reference": "ea855d9b50ca995fa53d2dafae336fb7c011cd8c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/lock/zipball/9ec22eef34e93964ad1a7d55389de4cf7482e731",
-                "reference": "9ec22eef34e93964ad1a7d55389de4cf7482e731",
+                "url": "https://api.github.com/repos/symfony/lock/zipball/ea855d9b50ca995fa53d2dafae336fb7c011cd8c",
+                "reference": "ea855d9b50ca995fa53d2dafae336fb7c011cd8c",
                 "shasum": ""
             },
             "require": {
@@ -2843,7 +2843,7 @@
                 "redlock",
                 "semaphore"
             ],
-            "time": "2020-03-16T16:38:48+00:00"
+            "time": "2020-03-27T16:56:45+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
