@@ -26,7 +26,7 @@
 		"latte/latte": "^2.8",
 		"tracy/tracy": "^2.6",
 		"contributte/console": "^0.8.0",
-		"nettrine/orm": "^0.6.0",
+		"nettrine/orm": "^0.7.0",
 		"milo/github-api": "^1.4",
 		"symfony/lock": "^5.0",
 		"uestla/twigrid": "^12.0"
