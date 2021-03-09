@@ -20,7 +20,7 @@ During the synchronization process, all commits from all repositories are being 
 
 You can run the synchronization either via console command
 
-```
+```bash
 ./bin/console synchronize
 ```
 
