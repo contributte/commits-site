@@ -48,20 +48,6 @@
 		]
 	},
 	"scripts": {
-		"ci": [
-			"@phpstan",
-			"@code-checker",
-			"@schema",
-			"@tester"
-		],
-		"phpstan": "phpstan analyse",
-		"code-checker": ["@code-checker-dir app/", "@code-checker-dir tests/"],
-		"code-checker-dir": "code-checker --eol --fix --strict-types -d",
-		"schema": [
-			"@clear-app-cache",
-			"@php bin/console orm:validate-schema --skip-sync"
-		],
-		"tester": "tester -j 8 -C --colors 1 --log var/log/tests.log --temp var/temp tests/",
 		"clear-app-cache": "rm -rf var/temp/cache"
 	}
 }
