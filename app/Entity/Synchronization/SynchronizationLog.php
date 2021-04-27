@@ -86,7 +86,7 @@ class SynchronizationLog
 
 	public function getApiCalls(): int
 	{
-		return (int) array_sum(array_map(static function (RepositoryLog $repositoryLog): int {
+		return array_sum(array_map(static function (RepositoryLog $repositoryLog): int {
 			return $repositoryLog->getApiCalls();
 
 		}, $this->repositoryLogs->toArray()));
@@ -95,7 +95,7 @@ class SynchronizationLog
 
 	public function getNewCommits(): int
 	{
-		return (int) array_sum(array_map(static function (RepositoryLog $repositoryLog): int {
+		return array_sum(array_map(static function (RepositoryLog $repositoryLog): int {
 			return $repositoryLog->getNewCommits();
 
 		}, $this->repositoryLogs->toArray()));
@@ -104,7 +104,7 @@ class SynchronizationLog
 
 	public function getDeletedCommits(): int
 	{
-		return (int) array_sum(array_map(static function (RepositoryLog $repositoryLog): int {
+		return array_sum(array_map(static function (RepositoryLog $repositoryLog): int {
 			return $repositoryLog->getDeletedCommits();
 
 		}, $this->repositoryLogs->toArray()));
