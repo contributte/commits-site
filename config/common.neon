@@ -80,3 +80,5 @@ services:
 		implement: App\Control\Grid\CommitsGrid\CommitsGridFactory
 		parameters: [ App\Entity\Project project ]
 		arguments: [ %project% ]
+
+	- implement: App\Control\Footer\FooterControlFactory

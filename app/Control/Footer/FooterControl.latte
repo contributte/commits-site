@@ -1,0 +1,6 @@
+{templateType App\Control\Footer\FooterTemplate}
+
+{if $lastSynchronizationLog}
+	<hr class="hidden visible-xs-block">
+	<p>Last synchronization: {$lastSynchronizationLog->getFinishedAt() |date:'Y-m-d H:i:s'}</p>
+{/if}

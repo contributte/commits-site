@@ -67,6 +67,12 @@ class SynchronizationLog
 	}
 
 
+	public function getFinishedAt(): ?\DateTimeImmutable
+	{
+		return $this->finishedAt;
+	}
+
+
 	public function finish(): void
 	{
 		$this->memoryPeak = memory_get_peak_usage(true);

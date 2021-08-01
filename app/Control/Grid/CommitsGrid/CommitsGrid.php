@@ -11,6 +11,8 @@ use Nette\Forms\Container;
 use TwiGrid\Components\Column;
 use TwiGrid\Components\Translator;
 use App\Form\Controls\RawTextInput;
+use App\Control\Footer\FooterControl;
+use App\Control\Footer\FooterControlFactory;
 use App\QueryFunction\Commit\CommitsFilteredByProjectQuery;
 use App\QueryFunction\Commit\CommitsFilteredByProjectCountQuery;
 
@@ -21,12 +23,14 @@ final class CommitsGrid extends DataGrid
 	private Project $project;
 	private CommitsFilteredByProjectCountQuery $commitsCountQuery;
 	private CommitsFilteredByProjectQuery $commitsFilteredQuery;
+	private FooterControlFactory $footerControlFactory;
 
 
 	public function __construct(
 		Project $project,
 		CommitsFilteredByProjectCountQuery $commitsCountQuery,
-		CommitsFilteredByProjectQuery $commitsFilteredQuery
+		CommitsFilteredByProjectQuery $commitsFilteredQuery,
+		FooterControlFactory $footerControlFactory
 
 	) {
 		parent::__construct();
@@ -34,6 +38,7 @@ final class CommitsGrid extends DataGrid
 		$this->project = $project;
 		$this->commitsCountQuery = $commitsCountQuery;
 		$this->commitsFilteredQuery = $commitsFilteredQuery;
+		$this->footerControlFactory = $footerControlFactory;
 	}
 
 
@@ -109,6 +114,12 @@ final class CommitsGrid extends DataGrid
 		});
 
 		$this->addRowAction('browse_tree', '', static function (): void {});
+	}
+
+
+	protected function createComponentFooter(): FooterControl
+	{
+		return $this->footerControlFactory->create();
 	}
 
 }
