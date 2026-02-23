@@ -9,7 +9,8 @@ Aggregation of all [nette](https://github.com/nette)/* repositories.
 2. create empty database for the project
 3. copy [config/local.neon.template](config/local.neon.template) to `config/local.neon` and configure it properly:
     - `database` for database connection
-    - `githubAPI` for GitHub API token - generate one [here](https://github.com/settings/tokens/new) with public access
+    - `github.tokens` for GitHub API tokens - generate them [here](https://github.com/settings/tokens/new) with public access
+      - tokens are used in round-robin mode and rate-limited requests retry with the next token
 4. run `make install`
 
 ## Synchronization
