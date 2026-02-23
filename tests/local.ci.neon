@@ -7,5 +7,6 @@ parameters:
 		password: password
 		dbname: test
 
-	githubAPI:
-		token: API_TOKEN
+	github:
+		tokens:
+			- API_TOKEN

@@ -21,6 +21,7 @@ search:
 			- App\Control\**
 			- App\**\*Template
 			- App\Router\RouterFactory
+			- App\Github\BetterApi
 		extends:
 			- Exception
 
@@ -66,9 +67,7 @@ services:
 	latte.templateFactory: App\View\TemplateFactory
 
 	-
-		factory: Milo\Github\Api
-		setup:
-			- setToken( Milo\Github\OAuth\Token( %githubAPI.token% ) )
+		factory: App\Github\BetterApi( %github.tokens% )
 
 	- Symfony\Component\Lock\LockFactory( Symfony\Component\Lock\Store\FlockStore( %tempDir%/flocks ) )::createLock('commits-synchronization')
 
