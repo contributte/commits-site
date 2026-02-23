@@ -5,6 +5,7 @@ declare(strict_types = 1);
 namespace App\Facade\Commit;
 
 use App\Entity\Repository;
+use Doctrine\DBAL\ArrayParameterType;
 use Doctrine\DBAL\Connection;
 
 
@@ -37,7 +38,7 @@ final class UnreachableCommitsDeleter
 			'shas' => $allSHAs,
 
 		], [
-			'shas' => Connection::PARAM_STR_ARRAY,
+			'shas' => ArrayParameterType::STRING,
 		]);
 	}
 

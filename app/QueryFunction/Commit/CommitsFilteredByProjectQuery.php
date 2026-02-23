@@ -29,7 +29,10 @@ final class CommitsFilteredByProjectQuery
 	public function get(Project $project, array $filters, array $orderBy, int $limit, int $offset): array
 	{
 		$qb = $this->filterQueryFactory->create($project, $filters)
-			->select('c', 'r', 'a', 'cmt')
+			->select('c')
+			->addSelect('r')
+			->addSelect('a')
+			->addSelect('cmt')
 			->setMaxResults($limit)
 			->setFirstResult($offset);
 

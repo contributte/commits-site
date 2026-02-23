@@ -12,8 +12,8 @@ use App\Helper\Pluralizer;
 use App\Helper\FileMtimeHelper;
 use App\Helper\RssEscapeHelper;
 use App\Helper\ChangeStatHelper;
+use Nette\Bridges\ApplicationLatte\Template;
 use Nette\Application\UI\Control;
-use Nette\Application\UI\Template;
 use App\Helper\TimeAgoInWordsHelper;
 use Nette\Bridges\ApplicationLatte\LatteFactory;
 
@@ -29,8 +29,8 @@ final class TemplateFactory extends \Nette\Bridges\ApplicationLatte\TemplateFact
 		?IRequest $httpRequest,
 		?User $user,
 		?Storage $cacheStorage,
-		?string $templateClass,
-		FileMtimeHelper $fileMtimeHelper
+		FileMtimeHelper $fileMtimeHelper,
+		?string $templateClass = null
 
 	) {
 		parent::__construct($latteFactory, $httpRequest, $user, $cacheStorage, $templateClass);
@@ -39,9 +39,13 @@ final class TemplateFactory extends \Nette\Bridges\ApplicationLatte\TemplateFact
 	}
 
 
+	/**
+	 * @template T of Template
+	 * @param class-string<T>|null $class
+	 * @return T
+	 */
 	public function createTemplate(?Control $control = null, ?string $class = null): Template
 	{
-		/** @var \Nette\Bridges\ApplicationLatte\Template $template */
 		$template = parent::createTemplate($control, $class);
 
 		$template->getLatte()

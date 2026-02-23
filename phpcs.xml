@@ -63,9 +63,7 @@
 
 	<rule ref="SlevomatCodingStandard.TypeHints.DeclareStrictTypes">
 		<properties>
-			<property name="newlinesCountAfterDeclare" value="2" />
 			<property name="spacesCountAroundEqualsSign" value="1" />
-			<property name="newlinesCountBetweenOpenTagAndDeclare" value="2" />
 		</properties>
 	</rule>
 
