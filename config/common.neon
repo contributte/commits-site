@@ -61,13 +61,11 @@ session:
 services:
 	router: App\Router\RouterFactory()::createRouter
 
-	doctrine.dbal.resultCache:
-		factory: Doctrine\Common\Cache\FilesystemCache( %tempDir%/cache/doctrine )
+	doctrine.dbal.resultCache: Doctrine\Common\Cache\FilesystemCache( %tempDir%/cache/doctrine )
 
 	latte.templateFactory: App\View\TemplateFactory
 
-	-
-		factory: App\Github\BetterApi( %github.tokens% )
+	- App\Github\BetterApi( %github.tokens% )
 
 	- Symfony\Component\Lock\LockFactory( Symfony\Component\Lock\Store\FlockStore( %tempDir%/flocks ) )::createLock('commits-synchronization')
 
