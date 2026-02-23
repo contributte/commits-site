@@ -38,7 +38,6 @@ INSERT IGNORE INTO `repository` (`id`, `name`, `project_id`) VALUES
 ('98265316',	'nette/tokenizer',	'b82r4gf7'),
 ('98265381',	'nette/tracy',	'b82r4gf7'),
 ('982654c0',	'nette/utils',	'b82r4gf7'),
-('9826558a',	'nette/union',	'b82r4gf7'),
 
 -- Documentation
 ('98264b0d',	'nette/docs',	'xbgtp7ww'),
