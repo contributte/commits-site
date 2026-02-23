@@ -17,6 +17,7 @@ use App\QueryFunction\Commit\CommitsFilteredByProjectQuery;
 use App\QueryFunction\Commit\CommitsFilteredByProjectCountQuery;
 
 
+/** @extends DataGrid<Commit> */
 final class CommitsGrid extends DataGrid
 {
 
@@ -42,10 +43,10 @@ final class CommitsGrid extends DataGrid
 	}
 
 
-	protected function createTemplate(): CommitsGridTemplate
+	protected function createTemplate(?string $class = null): CommitsGridTemplate
 	{
 		/** @var CommitsGridTemplate $template */
-		$template = parent::createTemplate(CommitsGridTemplate::class);
+		$template = parent::createTemplate($class ?? CommitsGridTemplate::class);
 
 		$template->project = $this->project;
 		$this->redrawControl('filters-toggler');
@@ -93,7 +94,7 @@ final class CommitsGrid extends DataGrid
 			$c->addText('sha');
 		});
 
-		$this->setValueGetter(static function (Commit $commit, $name): ?string {
+		$this->setValueGetter(static function (Commit $commit, string $name, bool $raw): ?string {
 			switch ($name) {
 				case 'repository':
 					return $commit->getRepository()->getBasename();
@@ -106,11 +107,17 @@ final class CommitsGrid extends DataGrid
 		});
 
 		$this->setPagination(32, function (array $filters): int {
-			return $this->commitsCountQuery->get($this->project, $filters);
+			/** @var array<string, string> $normalizedFilters */
+			$normalizedFilters = array_map('strval', array_filter($filters, static fn ($value): bool => is_scalar($value) && $value !== ''));
+
+			return $this->commitsCountQuery->get($this->project, $normalizedFilters);
 		});
 
 		$this->setDataLoader(function (array $filters, array $orderBy, $offset, $limit): array {
-			return $this->commitsFilteredQuery->get($this->project, $filters, $orderBy, $offset, $limit);
+			/** @var array<string, string> $normalizedFilters */
+			$normalizedFilters = array_map('strval', array_filter($filters, static fn ($value): bool => is_scalar($value) && $value !== ''));
+
+			return $this->commitsFilteredQuery->get($this->project, $normalizedFilters, $orderBy, $limit, (int) $offset);
 		});
 
 		$this->addRowAction('browse_tree', '', static function (): void {});

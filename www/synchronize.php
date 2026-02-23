@@ -52,6 +52,8 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 		// on synchronization finish
 		static function (SynchronizationLog $syncLog): void {
+			$filters = new Filters;
+
 			echo sprintf('
 Finished in %d seconds
 - memory peak: %s
@@ -60,7 +62,7 @@ Finished in %d seconds
 - deleted commits: %d
 ',
 				$syncLog->getElapsedSeconds(),
-				Filters::bytes((float) $syncLog->getMemoryPeak()),
+				$filters->bytes((float) $syncLog->getMemoryPeak()),
 				$syncLog->getApiCalls(),
 				$syncLog->getNewCommits(),
 				$syncLog->getDeletedCommits()

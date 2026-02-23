@@ -13,7 +13,7 @@ final class RawTextInput extends TextInput
 
 	public function loadHttpData(): void
 	{
-		$this->setValue($this->getHttpData(Form::DATA_TEXT)); // intentionally DATA_TEXT not to omit leading/trailing spaces
+		$this->setValue($this->getHttpData(Form::DataText)); // intentionally DataText not to omit leading/trailing spaces
 	}
 
 

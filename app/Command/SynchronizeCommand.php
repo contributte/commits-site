@@ -97,10 +97,12 @@ final class SynchronizeCommand extends Command
 
 			// on synchronization finish
 			function (SynchronizationLog $syncLog): void {
+				$filters = new Filters;
+
 				$this->io->success(sprintf('Finished in %d seconds', $syncLog->getElapsedSeconds()));
 
 				$this->io->table([], [
-					['Memory Peak', Filters::bytes((float) $syncLog->getMemoryPeak())],
+					['Memory Peak', $filters->bytes((float) $syncLog->getMemoryPeak())],
 					['API calls', $syncLog->getApiCalls()],
 					['New Commits', $syncLog->getNewCommits()],
 					['Deleted Commits', $syncLog->getDeletedCommits()],

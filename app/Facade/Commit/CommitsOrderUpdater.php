@@ -50,9 +50,7 @@ final class CommitsOrderUpdater
 		$sortSqlParams['repository'] = $repository->getName();
 		$sql = sprintf($sortSQL, $sortCases);
 
-		$this->connection->executeQuery($sql, $sortSqlParams, [
-			'shas' => Connection::PARAM_STR_ARRAY,
-		]);
+		$this->connection->executeQuery($sql, $sortSqlParams);
 	}
 
 }
