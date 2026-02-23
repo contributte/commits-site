@@ -38,6 +38,7 @@ INSERT IGNORE INTO `repository` (`id`, `name`, `project_id`) VALUES
 ('98265316',	'nette/tokenizer',	'b82r4gf7'),
 ('98265381',	'nette/tracy',	'b82r4gf7'),
 ('982654c0',	'nette/utils',	'b82r4gf7'),
+('9826558a',	'nette/union',	'b82r4gf7'),
 
 -- Documentation
 ('98264b0d',	'nette/docs',	'xbgtp7ww'),
@@ -53,6 +54,12 @@ INSERT IGNORE INTO `repository` (`id`, `name`, `project_id`) VALUES
 ('98264840',	'nette/coding-standard',	'6qbku3rw'),
 ('982648c1',	'nette/command-line',	'6qbku3rw'),
 ('98265455',	'nette/type-fixer',	'6qbku3rw'),
+('9826559b',	'nette/phpstan-rules',	'6qbku3rw'),
+('982655ab',	'nette/latte-tools',	'6qbku3rw'),
+('982655bc',	'nette/vite-plugin',	'6qbku3rw'),
+('982655cd',	'nette/eslint-plugin',	'6qbku3rw'),
+('982655de',	'nette/claude-code',	'6qbku3rw'),
+('982655ef',	'nette/mcp-inspector',	'6qbku3rw'),
 
 -- Tester
 ('982652b0',	'nette/tester',	'955svzgv')
